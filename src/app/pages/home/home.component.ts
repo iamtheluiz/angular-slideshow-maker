@@ -2,6 +2,11 @@ import { NgFor } from '@angular/common';
 import { Component, DoCheck, OnInit, SecurityContext } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import showdown from "showdown";
+
+const converter = new showdown.Converter({
+  tables: true
+});
 
 @Component({
   selector: 'app-home',
@@ -28,27 +33,13 @@ export class HomeComponent implements DoCheck, OnInit {
 
   ngDoCheck(): void {
     // Get each slide content
-    const splittedMarkdownText = this.markdownText.split('---');
+    const splittedMarkdownText = this.markdownText.split('---\n');
 
     const serializedMarkdownText = splittedMarkdownText.map(text => {
-      const splittedLines = text.split('\n');
+      const html = converter.makeHtml(text);
 
-      const serializedLines = splittedLines.filter(line => line !== "").map(line => {
-        let serializedLine = line.replaceAll("\n", "<br>");
-
-        if (line.startsWith("# ")) {
-          serializedLine = `<h1>${line.split("# ")[1]}</h1>`;
-        } else {
-          serializedLine = `<p>${line}</p>`;
-        }
-
-        return serializedLine;
-      })
-
-      return this.sanitizer.sanitize(SecurityContext.HTML, this.sanitizer.bypassSecurityTrustHtml(serializedLines.join('')));
+      return this.sanitizer.sanitize(SecurityContext.HTML, this.sanitizer.bypassSecurityTrustHtml(html));
     });
-
-
 
     this.slides = serializedMarkdownText;
 
