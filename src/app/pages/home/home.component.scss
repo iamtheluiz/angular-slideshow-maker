@@ -1,0 +1,16 @@
+main {
+  display: flex;
+  margin: 0 auto;
+}
+main fieldset {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 100%;
+}
+main fieldset textarea {
+  width: 100%;
+}
+main fieldset div {
+  border: 2px solid black;
+}

@@ -1,0 +1,10 @@
+<main class="container">
+  <fieldset>
+    <legend>Markdown</legend>
+    <textarea [(ngModel)]="markdownText" rows="30"></textarea>
+  </fieldset>
+  <fieldset>
+    <legend>Preview</legend>
+    <div *ngFor="let slide of slides" [innerHTML]="slide"></div>
+  </fieldset>
+</main>
