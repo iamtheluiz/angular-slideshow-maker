@@ -1,10 +1,11 @@
 <main class="container">
   <fieldset>
     <legend>Markdown</legend>
-    <textarea [(ngModel)]="markdownText" rows="30"></textarea>
+    <textarea [(ngModel)]="markdown" (ngModelChange)="markdownChange($event)" rows="30"></textarea>
+    <a routerLink="/present">Present Slides</a>
   </fieldset>
   <fieldset>
     <legend>Preview</legend>
-    <div *ngFor="let slide of slides" class="slide" [innerHTML]="slide"></div>
+    <app-slide *ngFor="let slide of slides" [html]="slide" />
   </fieldset>
 </main>

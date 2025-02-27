@@ -1,0 +1,26 @@
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  aspect-ratio: 16 / 9;
+
+  padding: 32px;
+  border: 2px solid black;
+}
+
+.slide table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.slide table th,
+.slide table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.slide table th {
+  background-color: #f2f2f2;
+}

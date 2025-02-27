@@ -22,38 +22,12 @@ textarea {
   border: 2px dashed black;
   padding: 8px;
 }
+ul,
+ol {
+  list-style-position: inside;
+}
 
 .container {
   max-width: 1180px;
   width: 100%;
-}
-.slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  aspect-ratio: 16 / 9;
-
-  padding: 32px;
-
-  ul,
-  ol {
-    list-style-position: inside;
-  }
-}
-
-.slide table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.slide table th,
-.slide table td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-}
-
-.slide table th {
-  background-color: #f2f2f2;
 }
