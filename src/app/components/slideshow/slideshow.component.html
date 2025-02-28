@@ -1,5 +1,5 @@
 <div class="slide-container">
-  <app-slide [html]="slides[currentSlideIndex]" />
+  <app-slide [html]="slides[currentSlideIndex]" [full]="true" />
   <div class="controls">
     <button (click)="handleToggleFullScreen()">Full</button>
     <button (click)="handlePreviousSlide()">Prev</button>
