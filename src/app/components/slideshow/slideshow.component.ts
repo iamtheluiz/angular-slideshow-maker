@@ -19,16 +19,32 @@ export class SlideshowComponent implements OnInit, OnDestroy {
 
   constructor(private slideService: SlideService) {
     slideService.ngOnInit();
+
+    this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
   ngOnInit(): void {
     this.subscriptions.add(this.slideService.currentSlides.subscribe(slides => {
       this.slides = slides;
     }));
+
+    document.addEventListener("keydown", this.handleKeyboard);
   }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
+
+    document.removeEventListener("keydown", this.handleKeyboard);
+  }
+
+  handleKeyboard(event: KeyboardEvent) {
+    if (event.code === "ArrowLeft" || event.code === "KeyA") {
+      this.handlePreviousSlide();
+    } else if (event.code === "ArrowRight" || event.code === "KeyD") {
+      this.handleNextSlide();
+    } else if (event.code === "KeyF") {
+      this.handleToggleFullScreen();
+    }
   }
 
   handleToggleFullScreen() {
