@@ -1,0 +1,21 @@
+.slide-container {
+  max-height: 100vh;
+
+  position: relative;
+
+  .slide {
+    max-height: 100% !important;
+  }
+}
+.controls {
+  position: fixed;
+  bottom: 0;
+  
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  padding: 16px;
+}

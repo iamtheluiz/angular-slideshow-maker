@@ -1,1 +1,8 @@
-<app-slide *ngFor="let slide of slides" [html]="slide" />
+<div class="slide-container">
+  <app-slide [html]="slides[currentSlideIndex]" />
+  <div class="controls">
+    <button (click)="handleToggleFullScreen()">Full</button>
+    <button (click)="handlePreviousSlide()">Prev</button>
+    <button (click)="handleNextSlide()">Next</button>
+  </div>
+</div>
