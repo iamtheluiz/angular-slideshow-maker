@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SlideService } from '../../services/slides/slide.service';
 import { SlideComponent } from "../slide/slide.component";
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-slideshow',
@@ -17,7 +18,10 @@ export class SlideshowComponent implements OnInit, OnDestroy {
 
   private subscriptions = new Subscription();
 
-  constructor(private slideService: SlideService) {
+  constructor(
+    private slideService: SlideService,
+    private router: Router
+  ) {
     slideService.ngOnInit();
 
     this.handleKeyboard = this.handleKeyboard.bind(this);
@@ -44,7 +48,13 @@ export class SlideshowComponent implements OnInit, OnDestroy {
       this.handleNextSlide();
     } else if (event.code === "KeyF") {
       this.handleToggleFullScreen();
+    } else if (event.code === "Backspace") {
+      this.handleReturn();
     }
+  }
+
+  handleReturn() {
+    this.router.navigateByUrl("/");
   }
 
   handleToggleFullScreen() {

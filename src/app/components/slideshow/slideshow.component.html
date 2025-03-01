@@ -1,6 +1,7 @@
 <div class="slide-container">
   <app-slide [html]="slides[currentSlideIndex]" [full]="true" />
   <div class="controls">
+    <button (click)="handleReturn()">Return</button>
     <button (click)="handleToggleFullScreen()">Full</button>
     <button (click)="handlePreviousSlide()">Prev</button>
     <button (click)="handleNextSlide()">Next</button>
