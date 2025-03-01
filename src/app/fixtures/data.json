@@ -1,0 +1,3 @@
+{
+  "defaultMarkdownValue": "# Introduction\nWelcome to our slideshow presentation! This tool allows you to create dynamic presentations using simple Markdown syntax. \n---\n# Features\n- Easy to use: Just write in Markdown!\n- Local storage: All generated data is stored on your machine.\n---\n# How to Use\n1. Write your content in Markdown format.\n2. Use '---' to separate different slides.\n3. Preview your slides and make adjustments as needed.\n---\n# Example Table\n| Name           | Genre    | Rating |\n|----------------|----------|--------|\n| Toradora       | Romance  | 10     |\n| 86: Eighty-Six | Drama    | 10     |\n---\n# Conclusion\nThank you for using our slideshow generator! We hope you enjoy creating your presentations.\n"
+}

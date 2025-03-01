@@ -1,6 +1,7 @@
 import { Injectable, OnInit, SecurityContext } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
+import defaultData from "../../fixtures/data.json";
 import showdown from "showdown";
 
 const converter = new showdown.Converter({
@@ -12,31 +13,7 @@ const converter = new showdown.Converter({
 })
 export class SlideService implements OnInit {
   private slidesSource = new BehaviorSubject<any>(null);
-  private markdownSource = new BehaviorSubject<string>(`# Introduction
-Welcome to our slideshow presentation! This tool allows you to create dynamic presentations using simple Markdown syntax. 
-
----
-# Features
-- Easy to use: Just write in Markdown!
-- Local storage: All generated data is stored on your machine.
-
----
-# How to Use
-1. Write your content in Markdown format.
-2. Use '---' to separate different slides.
-3. Preview your slides and make adjustments as needed.
-
----
-# Example Table
-| Name           | Genre    | Rating |
-|----------------|----------|--------|
-| Toradora       | Romance  | 10     |
-| 86: Eighty-Six | Drama    | 10     |
-
----
-# Conclusion
-Thank you for using our slideshow generator! We hope you enjoy creating your presentations.
-`);
+  private markdownSource = new BehaviorSubject<string>(defaultData.defaultMarkdownValue);
 
   currentSlides = this.slidesSource.asObservable();
   currentMarkdown = this.markdownSource.asObservable();
