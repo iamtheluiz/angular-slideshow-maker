@@ -1,0 +1,14 @@
+<app-container>
+  <form [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
+    <h1>Add Slide</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Markdown</mat-label>
+      <textarea matInput formControlName="markdown" rows="10"></textarea>
+    </mat-form-field>
+    <button mat-stroked-button type="submit">Submit</button>
+  </form>
+</app-container>

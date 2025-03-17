@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SlideService } from '../../services/slides/slide.service';
 import { Subscription } from 'rxjs';
 import { ContainerComponent } from "../../components/container/container.component";
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-slide-list',
@@ -16,7 +16,8 @@ import { Router } from '@angular/router';
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
-    ContainerComponent
+    ContainerComponent,
+    RouterLink
 ],
   templateUrl: './slide-list.component.html',
   styleUrl: './slide-list.component.scss'

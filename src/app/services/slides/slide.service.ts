@@ -96,6 +96,23 @@ export class SlideService implements OnInit {
     this.changeMarkdown(slide.markdown ?? defaultData.defaultMarkdownValue);
   }
 
+  createSlide(slide: Slide) {
+    const id = Math.max(...this.slideListSource.value.map(slide => slide.id), 0) + 1
+
+    const serializedSlide: Slide = {
+      ...slide,
+      id,
+      createdAt: new Date(),
+    }
+
+    const newSlideList = [
+      ...this.slideListSource.value,
+      serializedSlide
+    ];
+
+    this.slideListSource.next(newSlideList);
+  }
+
   deleteSlide(id: number) {
     const newSlideList = this.slideListSource.value.filter(slide => slide.id !== id);
 

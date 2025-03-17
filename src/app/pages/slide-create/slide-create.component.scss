@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 16px;
+  }
+}
