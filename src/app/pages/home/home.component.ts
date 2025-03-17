@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ContainerComponent } from "../../components/container/container.component";
 import { HeaderComponent } from "../../components/header/header.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ import { HeaderComponent } from "../../components/header/header.component";
     MatCardModule,
     MatButtonModule,
     ContainerComponent,
-    HeaderComponent
+    HeaderComponent,
+    RouterLink
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

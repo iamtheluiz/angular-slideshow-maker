@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  justify-content: center;
+  
+  width: 100%;
+}
+
+.data-actions {
+  display: flex;
+  flex-direction: row;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th, td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

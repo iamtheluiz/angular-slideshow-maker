@@ -12,3 +12,14 @@ main fieldset {
   overflow-y: auto;
   max-height: calc(100vh - 16px * 2);
 }
+main fieldset footer {
+  display: flex;
+
+  width: 100%;
+
+  gap: 8px;
+
+  a {
+    width: 100%;
+  }
+}
