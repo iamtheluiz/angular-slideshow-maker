@@ -3,11 +3,13 @@ import { SlideService } from '../../services/slides/slide.service';
 import { SlideComponent } from "../slide/slide.component";
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-slideshow',
   imports: [
-    SlideComponent
+    SlideComponent,
+    MatButtonModule
   ],
   templateUrl: './slideshow.component.html',
   styleUrl: './slideshow.component.scss'
@@ -54,7 +56,7 @@ export class SlideshowComponent implements OnInit, OnDestroy {
   }
 
   handleReturn() {
-    this.router.navigateByUrl("/");
+    this.router.navigateByUrl("/slide/edit");
   }
 
   handleToggleFullScreen() {
@@ -83,5 +85,9 @@ export class SlideshowComponent implements OnInit, OnDestroy {
     }
 
     this.currentSlideIndex = newSlideIndex;
+  }
+
+  handleGeneratePDF() {
+    
   }
 }

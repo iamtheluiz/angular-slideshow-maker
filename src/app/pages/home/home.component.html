@@ -1,11 +1,5 @@
-<main class="container">
-  <fieldset>
-    <legend>Markdown</legend>
-    <textarea [(ngModel)]="markdown" (ngModelChange)="markdownChange($event)" rows="30"></textarea>
-    <a routerLink="/present">Present Slides</a>
-  </fieldset>
-  <fieldset>
-    <legend>Preview</legend>
-    <app-slide *ngFor="let slide of slides" [html]="slide" />
-  </fieldset>
-</main>
+<app-container>
+  <app-header />
+  <h1>Markdown Slide Creator</h1>
+  <span>Create simple slides using simple Markdown syntax.</span>
+</app-container>

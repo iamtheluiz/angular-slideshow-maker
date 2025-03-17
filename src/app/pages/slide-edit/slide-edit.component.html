@@ -1,0 +1,19 @@
+<main class="container">
+  <fieldset>
+    <legend>Markdown</legend>
+    <mat-form-field appearance="outline">
+      <mat-label>Markdown</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="markdown"
+        (ngModelChange)="markdownChange($event)"
+        rows="30"
+      ></textarea>
+    </mat-form-field>
+    <a mat-flat-button routerLink="/slide/show">Present Slides</a>
+  </fieldset>
+  <fieldset>
+    <legend>Preview</legend>
+    <app-slide *ngFor="let slide of slides" [html]="slide" />
+  </fieldset>
+</main>
