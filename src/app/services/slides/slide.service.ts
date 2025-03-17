@@ -67,17 +67,7 @@ export class SlideService implements OnInit {
     // this.slideListSource.next(slideList);
   }
 
-  changeSlides(slides: any) {
-    this.slidesSource.next(slides);
-  }
-
-  changeMarkdown(markdown: string) {
-    this.markdownSource.next(markdown);
-
-    this.updateSlides(markdown);
-  }
-
-  updateSlides(markdown: string): void {
+  private updateSlides(markdown: string): void {
     // Get each slide content
     const splittedMarkdownText = markdown.split('---\n');
 
@@ -88,6 +78,16 @@ export class SlideService implements OnInit {
     });
 
     this.changeSlides(serializedMarkdownText);
+  }
+
+  changeSlides(slides: any) {
+    this.slidesSource.next(slides);
+  }
+
+  changeMarkdown(markdown: string) {
+    this.markdownSource.next(markdown);
+
+    this.updateSlides(markdown);
   }
 
   setCurrentSlide(id: number) {
