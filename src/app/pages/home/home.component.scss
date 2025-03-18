@@ -4,3 +4,38 @@
   
   width: 100%;
 }
+section#banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+section#banner .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+
+  h1 {
+    font-size: 44px;
+  }
+  p {
+    font-size: 20px;
+  }
+  a {
+    margin-top: 16px;
+  }
+}
+section#banner img {
+  max-width: 880px;
+  width: 100%;
+  height: auto;
+
+  border-radius: 16px;
+  border: 4px solid black;
+
+  align-self: flex;
+}

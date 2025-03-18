@@ -1,0 +1,25 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 0px;
+
+  width: 100%;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 500;
+}
+.logo mat-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+}
+.links {
+  display: flex;
+
+  gap: 4px;
+}
