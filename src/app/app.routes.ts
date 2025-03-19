@@ -7,8 +7,8 @@ import { SlideCreateComponent } from './pages/slide-create/slide-create.componen
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'slide/edit', component: SlideEditComponent },
-  { path: 'slide/show', component: SlideShowComponent },
+  { path: 'slide/:id/edit', component: SlideEditComponent },
+  { path: 'slide/:id/show', component: SlideShowComponent },
   { path: 'slide/list', component: SlideListComponent },
   { path: 'slide/create', component: SlideCreateComponent }
 ];

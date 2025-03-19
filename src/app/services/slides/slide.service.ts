@@ -56,6 +56,10 @@ export class SlideService implements OnInit {
     this.updateSlides(markdown);
   }
 
+  getSlideList() {
+    return this.slideListSource.value;
+  }
+
   setCurrentSlide(id: number) {
     const slide = this.slideListSource.value.filter(slide => slide.id === id)[0];
 

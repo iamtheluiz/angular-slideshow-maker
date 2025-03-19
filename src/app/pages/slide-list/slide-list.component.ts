@@ -1,13 +1,14 @@
+import { Subscription } from 'rxjs';
+import { RouterLink } from '@angular/router';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
-import { Slide } from '../../interfaces/slide';
 import { MatButtonModule } from '@angular/material/button';
+
+import { Slide } from '../../interfaces/slide';
 import { SlideService } from '../../services/slides/slide.service';
-import { Subscription } from 'rxjs';
 import { ContainerComponent } from "../../components/container/container.component";
-import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-slide-list',
@@ -18,7 +19,7 @@ import { Router, RouterLink } from '@angular/router';
     MatButtonModule,
     ContainerComponent,
     RouterLink
-],
+  ],
   templateUrl: './slide-list.component.html',
   styleUrl: './slide-list.component.scss'
 })
@@ -30,7 +31,7 @@ export class SlideListComponent implements AfterViewInit, OnInit {
 
   private subscriptions = new Subscription();
 
-  constructor(private slideService: SlideService, private router: Router) {
+  constructor(private slideService: SlideService) {
     this.slideService.ngOnInit();
   }
 
@@ -42,18 +43,6 @@ export class SlideListComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
-  }
-
-  handleShowSlide(id: number) {
-    this.slideService.setCurrentSlide(id);
-
-    this.router.navigateByUrl("slide/show")
-  }
-  
-  handleEditSlide(id: number) {
-    this.slideService.setCurrentSlide(id);
-
-    this.router.navigateByUrl("slide/edit")
   }
 
   handleDeleteSlide(id: number) {

@@ -1,10 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { SlideService } from '../../services/slides/slide.service';
 import { SlideComponent } from "../slide/slide.component";
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { FullscreenService } from '../../services/slides/fullscreen.service';
+import { Slide } from '../../interfaces/slide';
 
 @Component({
   selector: 'app-slideshow',
@@ -16,6 +17,8 @@ import { FullscreenService } from '../../services/slides/fullscreen.service';
   styleUrl: './slideshow.component.scss'
 })
 export class SlideshowComponent implements OnInit, OnDestroy {
+  @Input() slide: Slide | undefined;
+
   slides: any;
   currentSlideIndex = 0;
 
@@ -35,6 +38,8 @@ export class SlideshowComponent implements OnInit, OnDestroy {
     this.subscriptions.add(this.slideService.currentSlides.subscribe(slides => {
       this.slides = slides;
     }));
+
+    this.slideService.changeMarkdown(this.slide?.markdown ?? "");
 
     document.addEventListener("keydown", this.handleKeyboard);
   }
@@ -86,6 +91,6 @@ export class SlideshowComponent implements OnInit, OnDestroy {
   }
 
   handleGeneratePDF() {
-    
+
   }
 }

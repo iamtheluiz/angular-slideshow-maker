@@ -2,7 +2,7 @@ import { Subscription } from 'rxjs';
 import { NgFor } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,12 +25,13 @@ import { SlideService } from '../../services/slides/slide.service';
   styleUrl: './slide-edit.component.scss'
 })
 export class SlideEditComponent implements OnInit, OnDestroy {
+  slide: any;
   markdown: any;
   slides: any;
 
   private subscriptions = new Subscription();
 
-  constructor(private slideService: SlideService) {
+  constructor(private route: ActivatedRoute, private router: Router, private slideService: SlideService) {
     slideService.ngOnInit();
   }
 
@@ -45,6 +46,15 @@ export class SlideEditComponent implements OnInit, OnDestroy {
     this.subscriptions.add(this.slideService.currentSlides.subscribe(slides => {
       this.slides = slides;
     }));
+
+    const id = this.route.snapshot.paramMap.get("id");
+
+    if (!id) {
+      this.router.navigateByUrl("/slide/list");
+    }
+
+    this.slide = this.slideService.getSlideList().filter(slide => slide.id === Number(id))[0];
+    this.slideService.changeMarkdown(this.slide.markdown);
   }
 
   ngOnDestroy() {
