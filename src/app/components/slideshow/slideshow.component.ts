@@ -4,6 +4,7 @@ import { SlideComponent } from "../slide/slide.component";
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { FullscreenService } from '../../services/slides/fullscreen.service';
 
 @Component({
   selector: 'app-slideshow',
@@ -22,6 +23,7 @@ export class SlideshowComponent implements OnInit, OnDestroy {
 
   constructor(
     private slideService: SlideService,
+    private fullscreenService: FullscreenService,
     private router: Router
   ) {
     slideService.ngOnInit();
@@ -60,11 +62,7 @@ export class SlideshowComponent implements OnInit, OnDestroy {
   }
 
   handleToggleFullScreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
+    this.fullscreenService.toggleFullscreen();
   }
 
   handlePreviousSlide() {
