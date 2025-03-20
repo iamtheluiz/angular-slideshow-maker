@@ -10,8 +10,11 @@ section#banner .description {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
   flex: 1;
+  gap: 8px;
+
+  padding: 96px;
+  text-align: center;
 
   h1 {
     font-size: 44px;
