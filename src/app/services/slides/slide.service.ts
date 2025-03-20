@@ -84,6 +84,19 @@ export class SlideService implements OnInit {
     this.updateLocalStorage();
   }
 
+  updateSlide(slide: Slide) {
+    const updatedSlideList = this.slideListSource.value.map(item => {
+      if (item.id !== slide.id) {
+        return item;
+      }
+
+      return slide;
+    })
+
+    this.slideListSource.next(updatedSlideList);
+    this.updateLocalStorage();
+  }
+
   deleteSlide(id: number) {
     const newSlideList = this.slideListSource.value.filter(slide => slide.id !== id);
 

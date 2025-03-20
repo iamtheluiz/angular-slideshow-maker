@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { SlideComponent } from '../../components/slide/slide.component';
 import { SlideService } from '../../services/slides/slide.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-slide-edit',
@@ -19,7 +20,8 @@ import { SlideService } from '../../services/slides/slide.service';
     SlideComponent,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   templateUrl: './slide-edit.component.html',
   styleUrl: './slide-edit.component.scss'
@@ -33,10 +35,6 @@ export class SlideEditComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute, private router: Router, private slideService: SlideService) {
     slideService.ngOnInit();
-  }
-
-  markdownChange(value: string) {
-    this.slideService.changeMarkdown(value);
   }
 
   ngOnInit(): void {
@@ -59,5 +57,16 @@ export class SlideEditComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
+  }
+
+  markdownChange(value: string) {
+    this.slideService.changeMarkdown(value);
+  }
+
+  handleSaveSlide() {
+    this.slideService.updateSlide({
+      ...this.slide,
+      markdown: this.markdown
+    });
   }
 }
