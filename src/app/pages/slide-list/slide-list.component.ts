@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { Slide } from '../../interfaces/slide';
 import { SlideService } from '../../services/slides/slide.service';
-import { ContainerComponent } from "../../components/container/container.component";
+import { ContentComponent } from "../../components/content/content.component";
 
 @Component({
   selector: 'app-slide-list',
@@ -17,9 +17,9 @@ import { ContainerComponent } from "../../components/container/container.compone
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
-    ContainerComponent,
-    RouterLink
-  ],
+    RouterLink,
+    ContentComponent
+],
   templateUrl: './slide-list.component.html',
   styleUrl: './slide-list.component.scss'
 })

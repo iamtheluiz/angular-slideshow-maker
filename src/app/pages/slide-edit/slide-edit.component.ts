@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SlideComponent } from '../../components/slide/slide.component';
 import { SlideService } from '../../services/slides/slide.service';
 import { MatIconModule } from '@angular/material/icon';
+import { ContentComponent } from "../../components/content/content.component";
 
 @Component({
   selector: 'app-slide-edit',
@@ -21,8 +22,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    ContentComponent
+],
   templateUrl: './slide-edit.component.html',
   styleUrl: './slide-edit.component.scss'
 })

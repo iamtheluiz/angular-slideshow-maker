@@ -1,7 +1,11 @@
-<main class="container">
+<app-content>
   <fieldset>
     <legend>Markdown</legend>
-    <button mat-icon-button (click)="handleSaveSlide()" [disabled]="slide.markdown === markdown">
+    <button
+      mat-icon-button
+      (click)="handleSaveSlide()"
+      [disabled]="slide.markdown === markdown"
+    >
       <mat-icon>save</mat-icon>
     </button>
     <mat-form-field appearance="outline">
@@ -24,4 +28,4 @@
     <legend>Preview</legend>
     <app-slide *ngFor="let slide of slides" [html]="slide" />
   </fieldset>
-</main>
+</app-content>

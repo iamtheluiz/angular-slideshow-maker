@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
-import { ContainerComponent } from "../../components/container/container.component";
-
 import defaultData from "../../fixtures/data.json";
 import { SlideService } from '../../services/slides/slide.service';
-import { Router } from '@angular/router';
+import { ContentComponent } from "../../components/content/content.component";
 
 @Component({
   selector: 'app-slide-create',
   imports: [
     ReactiveFormsModule,
-    ContainerComponent,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
-  ],
+    MatButtonModule,
+    ContentComponent
+],
   templateUrl: './slide-create.component.html',
   styleUrl: './slide-create.component.scss'
 })

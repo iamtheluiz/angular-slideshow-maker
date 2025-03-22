@@ -3,12 +3,14 @@ import { SlideshowComponent } from "../../components/slideshow/slideshow.compone
 import { ActivatedRoute, Router } from '@angular/router';
 import { Slide } from '../../interfaces/slide';
 import { SlideService } from '../../services/slides/slide.service';
+import { ContentComponent } from "../../components/content/content.component";
 
 @Component({
   selector: 'app-slide-show',
   imports: [
-    SlideshowComponent
-  ],
+    SlideshowComponent,
+    ContentComponent
+],
   templateUrl: './slide-show.component.html',
   styleUrl: './slide-show.component.scss'
 })

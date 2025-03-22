@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+  align-items: inherit;
+
+  width: 100%;
+  flex: 1;
+
+  padding: 16px;
+  margin-top: 8px;
+  border-radius: 16px;
+  
+  background-color: white;
+}

@@ -20,10 +20,16 @@ header {
 table {
   width: 100%;
   table-layout: fixed;
+
+  background-color: transparent;
 }
 
 th, td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+mat-paginator {
+  background-color: transparent;
 }
