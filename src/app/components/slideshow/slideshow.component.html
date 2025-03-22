@@ -1,10 +1,10 @@
 <div class="slide-container">
   <app-slide [html]="slides[currentSlideIndex]" [full]="true" />
   <div class="controls">
-    <button mat-raised-button (click)="handleReturn()">Return</button>
-    <button mat-raised-button (click)="handleToggleFullScreen()">Full</button>
+    <button *ngIf="showReturn" mat-raised-button (click)="handleReturn()">Return</button>
+    <button *ngIf="showFull" mat-raised-button (click)="handleToggleFullScreen()">Full</button>
     <button mat-raised-button (click)="handlePreviousSlide()">Prev</button>
     <button mat-raised-button (click)="handleNextSlide()">Next</button>
-    <button mat-raised-button (click)="handleGeneratePDF()">Generate PDF</button>
+    <button *ngIf="showGeneratePDF" mat-raised-button (click)="handleGeneratePDF()">Generate PDF</button>
   </div>
 </div>

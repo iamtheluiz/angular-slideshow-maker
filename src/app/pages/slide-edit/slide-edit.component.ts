@@ -1,5 +1,4 @@
 import { Subscription } from 'rxjs';
-import { NgFor } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -7,23 +6,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
-import { SlideComponent } from '../../components/slide/slide.component';
 import { SlideService } from '../../services/slides/slide.service';
 import { MatIconModule } from '@angular/material/icon';
 import { ContentComponent } from "../../components/content/content.component";
+import { SlideshowComponent } from "../../components/slideshow/slideshow.component";
 
 @Component({
   selector: 'app-slide-edit',
   imports: [
     FormsModule,
-    NgFor,
     RouterLink,
-    SlideComponent,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    ContentComponent
+    ContentComponent,
+    SlideshowComponent
 ],
   templateUrl: './slide-edit.component.html',
   styleUrl: './slide-edit.component.scss'

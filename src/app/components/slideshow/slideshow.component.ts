@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnDestroy, OnInit } from '@angular/core';
 import { SlideService } from '../../services/slides/slide.service';
 import { SlideComponent } from "../slide/slide.component";
 import { Subscription } from 'rxjs';
@@ -6,18 +6,23 @@ import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { FullscreenService } from '../../services/slides/fullscreen.service';
 import { Slide } from '../../interfaces/slide';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-slideshow',
   imports: [
     SlideComponent,
-    MatButtonModule
+    MatButtonModule,
+    NgIf
   ],
   templateUrl: './slideshow.component.html',
   styleUrl: './slideshow.component.scss'
 })
-export class SlideshowComponent implements OnInit, OnDestroy {
+export class SlideshowComponent implements OnInit, OnDestroy, DoCheck {
   @Input() slide: Slide | undefined;
+  @Input() showReturn: boolean = true;
+  @Input() showFull: boolean = true;
+  @Input() showGeneratePDF: boolean = true;
 
   slides: any;
   currentSlideIndex = 0;
@@ -48,6 +53,11 @@ export class SlideshowComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
 
     document.removeEventListener("keydown", this.handleKeyboard);
+  }
+
+  ngDoCheck(): void {
+    console.log(this.slides);
+    console.log(this.showReturn)
   }
 
   handleKeyboard(event: KeyboardEvent) {

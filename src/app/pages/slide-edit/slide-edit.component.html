@@ -1,31 +1,31 @@
 <app-content>
-  <fieldset>
-    <legend>Markdown</legend>
-    <button
-      mat-icon-button
-      (click)="handleSaveSlide()"
-      [disabled]="slide.markdown === markdown"
-    >
-      <mat-icon>save</mat-icon>
-    </button>
-    <mat-form-field appearance="outline">
-      <mat-label>Markdown</mat-label>
-      <textarea
-        matInput
-        [(ngModel)]="markdown"
-        (ngModelChange)="markdownChange($event)"
-        rows="30"
-      ></textarea>
-    </mat-form-field>
-    <footer>
-      <a mat-stroked-button routerLink="/slide/list">Return to List</a>
-      <a mat-flat-button [routerLink]="'/slide/' + slide.id + '/show'">
-        Present Slides
-      </a>
-    </footer>
-  </fieldset>
-  <fieldset>
-    <legend>Preview</legend>
-    <app-slide *ngFor="let slide of slides" [html]="slide" />
-  </fieldset>
+  <app-slideshow
+    [slide]="slide"
+    [showReturn]="false"
+    [showFull]="false"
+    [showGeneratePDF]="false"
+  />
+  <button
+    mat-icon-button
+    (click)="handleSaveSlide()"
+    [disabled]="slide.markdown === markdown"
+  >
+    <mat-icon>save</mat-icon>
+  </button>
+  <mat-form-field appearance="outline">
+    <mat-label>Markdown</mat-label>
+    <textarea
+      matInput
+      [(ngModel)]="markdown"
+      (ngModelChange)="markdownChange($event)"
+      rows="15"
+    ></textarea>
+  </mat-form-field>
+  <footer>
+    <a mat-stroked-button routerLink="/slide/list">Return to List</a>
+    <a mat-flat-button [routerLink]="'/slide/' + slide.id + '/show'">
+      Present Slides
+    </a>
+  </footer>
+  <!-- <app-slide *ngFor="let slide of slides" [html]="slide" /> -->
 </app-content>

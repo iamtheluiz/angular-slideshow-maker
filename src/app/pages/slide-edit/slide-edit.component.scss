@@ -1,26 +1,6 @@
 app-content {
   display: flex;
-  flex-direction: row;
   margin: 0 auto;
   gap: 4px;
   padding: 16px;
-}
-app-content fieldset {
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-  width: 100%;
-  overflow-y: auto;
-  max-height: calc(100vh - 16px * 2);
-}
-app-content fieldset footer {
-  display: flex;
-
-  width: 100%;
-
-  gap: 8px;
-
-  a {
-    width: 100%;
-  }
 }
