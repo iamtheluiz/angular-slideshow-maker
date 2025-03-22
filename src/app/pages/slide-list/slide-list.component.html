@@ -1,6 +1,14 @@
 <app-container>
-  <a mat-stroked-button routerLink="/">Return to Home</a>
-  <a mat-stroked-button routerLink="/slide/create">Create</a>
+  <header>
+    <a mat-stroked-button routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+      Return
+    </a>
+    <a mat-flat-button routerLink="/slide/create">
+      <mat-icon>add</mat-icon>
+      Create
+    </a>
+  </header>
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>ID</th>

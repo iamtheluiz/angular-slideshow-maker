@@ -5,6 +5,13 @@
   width: 100%;
 }
 
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
 .data-actions {
   display: flex;
   flex-direction: row;

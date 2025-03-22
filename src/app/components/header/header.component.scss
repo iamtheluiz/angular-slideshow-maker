@@ -11,7 +11,15 @@ header {
   justify-content: center;
   align-items: center;
 
+  color: inherit;
   font-weight: 500;
+  text-decoration: none;
+
+  transition: 0.2s color;
+}
+.logo:hover {
+  color: #005cbb;
+  text-shadow: 0px 0px 1px #003264;
 }
 .logo mat-icon {
   width: 32px;
