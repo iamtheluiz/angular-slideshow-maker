@@ -4,3 +4,11 @@ app-content {
   gap: 4px;
   padding: 16px;
 }
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  gap: 8px;
+  padding: 4px 0px;
+}

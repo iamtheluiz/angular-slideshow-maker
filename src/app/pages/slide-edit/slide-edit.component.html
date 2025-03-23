@@ -6,13 +6,24 @@
     [showGeneratePDF]="false"
     [enableKeyboard]="false"
   />
-  <button
-    mat-icon-button
-    (click)="handleSaveSlide()"
-    [disabled]="slide.markdown === markdown"
-  >
-    <mat-icon>save</mat-icon>
-  </button>
+  <div class="actions">
+    <!-- <a mat-stroked-button routerLink="/slide/list">
+      <mat-icon>arrow_back</mat-icon>
+      Return
+    </a> -->
+    <a mat-stroked-button [routerLink]="'/slide/' + slide.id + '/show'">
+      <mat-icon>visibility</mat-icon>
+      Present
+    </a>
+    <button
+      mat-flat-button
+      (click)="handleSaveSlide()"
+      [disabled]="slide.markdown === markdown"
+    >
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </div>
   <mat-form-field appearance="outline">
     <mat-label>Markdown</mat-label>
     <textarea
@@ -22,11 +33,5 @@
       rows="15"
     ></textarea>
   </mat-form-field>
-  <footer>
-    <a mat-stroked-button routerLink="/slide/list">Return to List</a>
-    <a mat-flat-button [routerLink]="'/slide/' + slide.id + '/show'">
-      Present Slides
-    </a>
-  </footer>
   <!-- <app-slide *ngFor="let slide of slides" [html]="slide" /> -->
 </app-content>
