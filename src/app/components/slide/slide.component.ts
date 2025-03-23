@@ -26,7 +26,6 @@ export class SlideComponent implements AfterViewInit, DoCheck {
   }
 
   calculateRelativeSize() {
-    console.log("Oi!");
     if (!this.slide) return;
 
     const baseWidth = 1920;

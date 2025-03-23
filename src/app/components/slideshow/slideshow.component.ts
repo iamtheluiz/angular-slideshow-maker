@@ -23,6 +23,7 @@ export class SlideshowComponent implements OnInit, OnDestroy, DoCheck {
   @Input() showReturn: boolean = true;
   @Input() showFull: boolean = true;
   @Input() showGeneratePDF: boolean = true;
+  @Input() enableKeyboard: boolean = true;
 
   slides: any;
   currentSlideIndex = 0;
@@ -46,13 +47,17 @@ export class SlideshowComponent implements OnInit, OnDestroy, DoCheck {
 
     this.slideService.changeMarkdown(this.slide?.markdown ?? "");
 
-    document.addEventListener("keydown", this.handleKeyboard);
+    if (this.enableKeyboard) {
+      document.addEventListener("keydown", this.handleKeyboard);
+    };
   }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
 
-    document.removeEventListener("keydown", this.handleKeyboard);
+    if (this.enableKeyboard) {
+      document.removeEventListener("keydown", this.handleKeyboard);
+    }
   }
 
   ngDoCheck(): void {
@@ -76,7 +81,11 @@ export class SlideshowComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   handleReturn() {
-    this.router.navigateByUrl("/slide/edit");
+    if (this.slide) {
+      this.router.navigateByUrl(`/slide/${this.slide.id}/edit`);
+    } else {
+      this.router.navigateByUrl("/slide/list");
+    }
   }
 
   handleToggleFullScreen() {
