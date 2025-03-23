@@ -65,9 +65,9 @@ export class SlideshowComponent implements OnInit, OnDestroy, DoCheck {
       this.handlePreviousSlide();
     } else if (event.code === "ArrowRight" || event.code === "KeyD") {
       this.handleNextSlide();
-    } else if (event.code === "KeyF") {
+    } else if (this.showFull && event.code === "KeyF") {
       this.handleToggleFullScreen();
-    } else if (event.code === "Backspace") {
+    } else if (this.showReturn && event.code === "Backspace") {
       this.handleReturn();
     }
   }
