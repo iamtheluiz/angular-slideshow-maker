@@ -24,7 +24,12 @@ export class SlideService implements OnInit {
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    let slideList = JSON.parse(localStorage.getItem("@angular-slideshow-maker/slide-list") ?? "[]");
+    let slideList: Array<Slide> = JSON.parse(localStorage.getItem("@angular-slideshow-maker/slide-list") ?? "[]");
+
+    slideList = slideList.map(slide => ({
+      ...slide,
+      createdAt: new Date(slide.createdAt)
+    }));
 
     this.slideListSource.next(slideList);
   }
