@@ -1,8 +1,9 @@
 import { Injectable, OnInit, SecurityContext } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
-import defaultData from "../../fixtures/data.json";
 import showdown from "showdown";
+
+import defaultData from "../../fixtures/data.json";
 import { Slide } from '../../interfaces/slide';
 
 const converter = new showdown.Converter({
@@ -34,7 +35,7 @@ export class SlideService implements OnInit {
     this.slideListSource.next(slideList);
   }
 
-  private updateSlides(markdown: string): void {
+  getSlideHtml(markdown: string) {
     // Get each slide content
     const splittedMarkdownText = markdown.split('---\n');
 
@@ -44,7 +45,13 @@ export class SlideService implements OnInit {
       return this.sanitizer.sanitize(SecurityContext.HTML, this.sanitizer.bypassSecurityTrustHtml(html));
     });
 
-    this.changeSlides(serializedMarkdownText);
+    return serializedMarkdownText;
+  }
+
+  private updateSlides(markdown: string): void {
+    const slideHtml = this.getSlideHtml(markdown);
+
+    this.changeSlides(slideHtml);
   }
 
   private updateLocalStorage() {

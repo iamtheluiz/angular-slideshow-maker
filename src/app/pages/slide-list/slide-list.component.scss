@@ -18,16 +18,15 @@ header {
 }
 
 table {
-  width: 100%;
-  table-layout: fixed;
-
   background-color: transparent;
-}
 
-th, td {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  .slide-preview {
+    display: flex;
+    padding: 8px;
+  }
+  app-slide {
+    width: 260px;
+  }
 }
 
 mat-paginator {

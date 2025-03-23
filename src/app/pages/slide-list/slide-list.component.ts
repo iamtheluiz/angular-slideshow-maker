@@ -5,10 +5,13 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { Slide } from '../../interfaces/slide';
 import { SlideService } from '../../services/slides/slide.service';
 import { ContentComponent } from "../../components/content/content.component";
+import { SlideComponent } from "../../components/slide/slide.component";
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-slide-list',
@@ -17,14 +20,17 @@ import { ContentComponent } from "../../components/content/content.component";
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
+    MatMenuModule,
     RouterLink,
-    ContentComponent
+    ContentComponent,
+    SlideComponent,
+    NgForOf
 ],
   templateUrl: './slide-list.component.html',
   styleUrl: './slide-list.component.scss'
 })
 export class SlideListComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['id', 'name', 'markdown', 'createdAt', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'preview', 'createdAt', 'actions'];
   dataSource = new MatTableDataSource<Slide>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -47,5 +53,9 @@ export class SlideListComponent implements AfterViewInit, OnInit {
 
   handleDeleteSlide(id: number) {
     this.slideService.deleteSlide(id);
+  }
+
+  formatSlideHtml(markdown: string) {
+    return this.slideService.getSlideHtml(markdown);
   }
 }

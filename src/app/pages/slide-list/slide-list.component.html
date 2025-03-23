@@ -18,9 +18,13 @@
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
-    <ng-container matColumnDef="markdown">
-      <th mat-header-cell *matHeaderCellDef>Markdown</th>
-      <td mat-cell *matCellDef="let element">{{ element.markdown }}</td>
+    <ng-container matColumnDef="preview">
+      <th mat-header-cell *matHeaderCellDef>Preview</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="slide-preview">
+          <app-slide [html]="formatSlideHtml(element.markdown)[0] ?? ''" />
+        </div>
+      </td>
     </ng-container>
     <ng-container matColumnDef="createdAt">
       <th mat-header-cell *matHeaderCellDef>Created at</th>
@@ -31,29 +35,31 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let element">
-        <div class="data-actions">
-          <a
-            mat-icon-button
-            aria-label="Show slide details"
-            [routerLink]="'/slide/' + element.id + '/edit'"
-          >
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item [routerLink]="'/slide/' + element.id + '/edit'">
             <mat-icon>edit</mat-icon>
+            <span>Edit</span>
           </a>
-          <a
-            mat-icon-button
-            aria-label="Show slide details"
-            [routerLink]="'/slide/' + element.id + '/show'"
-          >
+          <a mat-menu-item [routerLink]="'/slide/' + element.id + '/show'">
             <mat-icon>visibility</mat-icon>
+            <span>Present</span>
           </a>
           <button
-            mat-icon-button
+            mat-menu-item
             aria-label="Delete slide"
             (click)="handleDeleteSlide(element.id)"
           >
             <mat-icon>delete</mat-icon>
+            <span>Delete</span>
           </button>
-        </div>
+        </mat-menu>
       </td>
     </ng-container>
 
