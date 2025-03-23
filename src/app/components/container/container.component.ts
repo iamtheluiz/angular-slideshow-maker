@@ -22,8 +22,6 @@ export class ContainerComponent implements AfterViewInit, OnDestroy {
     this.subscriptions.add(this.fullscreenService.currentFullscreen.subscribe(fullscreen => {
       this.section.nativeElement.parentElement?.setAttribute('style', fullscreen ? 'max-width: 100%' : '');
 
-      console.log(this.section.nativeElement)
-
       this.fullscreen = fullscreen;
     }))
   }

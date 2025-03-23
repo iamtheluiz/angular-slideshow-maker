@@ -56,8 +56,11 @@ export class SlideshowComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngDoCheck(): void {
-    console.log(this.slides);
-    console.log(this.showReturn)
+    const maxSlideIndex = this.slides.length - 1;
+
+    if (this.currentSlideIndex > maxSlideIndex) {
+      this.currentSlideIndex = maxSlideIndex;
+    }
   }
 
   handleKeyboard(event: KeyboardEvent) {
