@@ -1,1 +1,7 @@
-<div [ngClass]="{ slide: true, full: full }" [innerHTML]="html"></div>
+<div
+  #slide
+  class="slide"
+  [style.font-size]="relativeFontSize + 'px'"
+  [style.padding]="relativePadding + 'px'"
+  [innerHTML]="html"
+></div>
