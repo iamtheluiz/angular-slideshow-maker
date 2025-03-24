@@ -16,8 +16,14 @@ export class FullscreenService {
 
     if (newFullscreen) {
       document.documentElement.requestFullscreen();
+
+      document.querySelector("body")?.classList.add("remove-box");
+      document.querySelector("app-content")?.classList.add("remove-box");
     } else {
       document.exitFullscreen();
+
+      document.querySelector("body")?.classList.remove("remove-box");
+      document.querySelector("app-content")?.classList.remove("remove-box");
     }
 
     this.fullscreen.next(newFullscreen);

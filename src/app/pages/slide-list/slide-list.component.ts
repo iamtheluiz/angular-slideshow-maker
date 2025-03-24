@@ -11,7 +11,6 @@ import { Slide } from '../../interfaces/slide';
 import { SlideService } from '../../services/slides/slide.service';
 import { ContentComponent } from "../../components/content/content.component";
 import { SlideComponent } from "../../components/slide/slide.component";
-import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-slide-list',
@@ -23,8 +22,7 @@ import { NgForOf } from '@angular/common';
     MatMenuModule,
     RouterLink,
     ContentComponent,
-    SlideComponent,
-    NgForOf
+    SlideComponent
 ],
   templateUrl: './slide-list.component.html',
   styleUrl: './slide-list.component.scss'

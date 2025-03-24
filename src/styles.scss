@@ -24,3 +24,15 @@ body {
 
   background-color: #d7e3ff;
 }
+
+.remove-box {
+  padding: 0px !important;
+  margin: 0px !important;
+  border: 0px !important;
+
+  border-radius: 0px !important;
+
+  .slide {
+    border: 0px !important;
+  }
+}

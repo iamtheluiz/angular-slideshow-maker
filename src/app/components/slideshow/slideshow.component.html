@@ -1,5 +1,5 @@
 <div class="slide-container">
-  <app-slide [html]="slides[currentSlideIndex]" [full]="true" />
+  <app-slide [html]="slides[currentSlideIndex]" />
   <div class="controls">
     <button *ngIf="showReturn" mat-raised-button (click)="handleReturn()">Return</button>
     <button *ngIf="showFull" mat-raised-button (click)="handleToggleFullScreen()">Full</button>

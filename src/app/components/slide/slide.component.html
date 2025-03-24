@@ -1,7 +1,8 @@
-<div
-  #slide
-  class="slide"
-  [style.font-size]="relativeFontSize + 'px'"
-  [style.padding]="relativePadding + 'px'"
-  [innerHTML]="html"
-></div>
+<div class="slide-container">
+  <div
+    #slide
+    class="slide"
+    [style.transform]="'scale('+scale+')'"
+    [innerHTML]="html"
+  ></div>
+</div>

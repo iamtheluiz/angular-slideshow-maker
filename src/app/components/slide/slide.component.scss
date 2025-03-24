@@ -1,17 +1,19 @@
+.slide-container {
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
 .slide {
   display: flex;
   flex-direction: column;
   justify-content: center;
 
+  width: 1920px;
   aspect-ratio: 16 / 9;
 
-  padding: 32px;
-  border: 2px solid black;
-  font-size: 8px;
-}
-.slide.full {
-  font-size: 32px;
   padding: 64px;
+  border: 2px solid black;
+  font-size: 32px;
 }
 
 .slide table {

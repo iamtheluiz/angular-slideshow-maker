@@ -8,12 +8,10 @@ import { AfterViewInit, ChangeDetectorRef, Component, DoCheck, Input, ViewChild 
 })
 export class SlideComponent implements AfterViewInit, DoCheck {
   @Input() html = "";
-  @Input() full = false;
 
   @ViewChild('slide') slide: any;
 
-  relativeFontSize = 0;
-  relativePadding = 0;
+  scale = 0;
 
   constructor(private cdr: ChangeDetectorRef) { }
 
@@ -29,13 +27,15 @@ export class SlideComponent implements AfterViewInit, DoCheck {
     if (!this.slide) return;
 
     const baseWidth = 1920;
-    const baseFontSize = 42;
-    const basePadding = 64;
+    const baseHeight = 1080;
+    const baseScale = 1;
 
     const slideElement = this.slide.nativeElement as HTMLDivElement;
 
-    this.relativeFontSize = Number((slideElement.clientWidth * baseFontSize) / baseWidth);
-    this.relativePadding = Number((slideElement.clientWidth * basePadding) / baseWidth);
+    this.scale = Number((slideElement.parentElement!.clientWidth * baseScale) / baseWidth);
+
+    slideElement.parentElement!.scrollLeft = (slideElement.parentElement!.scrollWidth - (baseWidth * this.scale)) / 2;
+    slideElement.parentElement!.scrollTop = (slideElement.parentElement!.scrollHeight - (baseHeight * this.scale)) / 2;
 
     this.cdr.detectChanges();
   }
