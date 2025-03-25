@@ -1,59 +1,52 @@
-# AngularSlideshowMaker
+# 📄 Angular Slideshow Maker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+Create simple slides using simple Markdown syntax.
 
-## Development server
+<img src=".github/home.png" alt="Captura de Tela da Página Inicial" />
 
-To start a local development server, run:
+<p align="center">
+  <img alt="Typescript" src="https://img.shields.io/badge/-Typescript-44475a?logo=typescript&color=191622&logoColor=white" />
+  <img alt="Angular" src="https://img.shields.io/badge/-Angular-44475a?logo=angular&color=191622&logoColor=white" />
+</p>
 
-```bash
-ng serve
-```
+## 🏃 Getting Started
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+First, clone this repository and access the created folder:
 
 ```bash
-ng generate component component-name
+# Cloning repository
+git clone https://github.com/iamtheluiz/angular-slideshow-maker.git
+
+cd angular-slideshow-maker/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Install all NodeJS dependencies:
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
+## 👨🏽‍💻 Usage
 
-To build the project run:
+To run this project in a local environment use:
 
 ```bash
-ng build
+npm run start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Then open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 
-## Running unit tests
+## ⚙️ Build
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To build this project, run:
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+## 💼 Authors
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Luiz Gustavo** - _Development_ - [iamtheluiz](https://github.com/iamtheluiz)
+  - Website: https://iamtheluiz.github.io
+  - Github: [@iamtheluiz](https://github.com/iamtheluiz)
+  - LinkedIn: [Luiz Gustavo da Silva Vasconcellos](https://www.linkedin.com/in/luiz-gustavo-da-silva-vasconcellos)
