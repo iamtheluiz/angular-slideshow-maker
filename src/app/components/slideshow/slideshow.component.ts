@@ -113,6 +113,8 @@ export class SlideshowComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   handleGeneratePDF() {
-
+    if (this.slide) {
+      this.router.navigateByUrl(`/slide/${this.slide.id}/export`);
+    }
   }
 }

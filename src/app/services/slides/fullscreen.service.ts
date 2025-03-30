@@ -11,10 +11,20 @@ export class FullscreenService {
 
   constructor() { }
 
+  setFullscreen(value: boolean) {
+    this.fullscreen.next(value);
+
+    this.checkFullscreen();
+  }
+
   toggleFullscreen() {
     const newFullscreen = !document.fullscreenElement;
 
-    if (newFullscreen) {
+    this.setFullscreen(newFullscreen);
+  }
+
+  checkFullscreen() {
+    if (this.fullscreen.value) {
       document.documentElement.requestFullscreen();
 
       document.querySelector("body")?.classList.add("remove-box");
@@ -25,7 +35,5 @@ export class FullscreenService {
       document.querySelector("body")?.classList.remove("remove-box");
       document.querySelector("app-content")?.classList.remove("remove-box");
     }
-
-    this.fullscreen.next(newFullscreen);
   }
 }
