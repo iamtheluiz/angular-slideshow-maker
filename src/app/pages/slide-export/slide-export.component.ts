@@ -50,6 +50,10 @@ export class SlideExportComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.pdfService.generatePdf();
+    this.pdfService.generatePdf(this.slide.name).then(() => {
+      this.fullscreenService.setFullscreen(false);
+      
+      this.router.navigateByUrl(`/slide/${this.slide.id}/show`);
+    });
   }
 }

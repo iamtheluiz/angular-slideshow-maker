@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import { domToJpeg } from 'modern-screenshot'
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import html2canvas from 'html2canvas';
 export class PdfService {
   constructor() { }
 
-  async generatePdf() {
+  async generatePdf(name = "slide") {
     const slides = document.querySelectorAll('app-slide');
 
     const pdf = new jsPDF('landscape', 'mm', [297, 167]);
@@ -18,11 +18,9 @@ export class PdfService {
     for (const slide of slides) {
       pageCounter += 1;
 
-      const canvas = await html2canvas(slide as HTMLElement, {
-        scale: 2,
-        allowTaint: true
+      const img = await domToJpeg(slide, {
+        backgroundColor: "white"
       });
-      const img = canvas.toDataURL('image/jpeg');
 
       pdf.addImage(img, 'JPEG', 0, 0, 297, 167);
 
@@ -31,6 +29,8 @@ export class PdfService {
       }
     }
 
-    pdf.save('slides.pdf');
+    const filename = name.replace(/[^a-zA-Z0-9 ]/g, '');
+
+    pdf.save(filename);
   }
 }
